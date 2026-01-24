@@ -11,8 +11,26 @@ config_version=5
 [application]
 
 config/name="shots_fired"
+run/main_scene="uid://b0abaaw0rjixx"
 config/features=PackedStringArray("4.5", "GL Compatibility")
+run/low_processor_mode=true
 config/icon="res://icon.svg"
+
+[debug]
+
+settings/stdout/print_fps=true
+
+[display]
+
+window/size/viewport_width=1080
+window/size/viewport_height=1920
+window/size/mode=2
+window/size/window_width_override=1920
+window/size/window_height_override=1080
+window/stretch/mode="canvas_items"
+window/dpi/allow_hidpi=false
+window/handheld/orientation=1
+window/vsync/vsync_mode=0
 
 [editor_plugins]
 

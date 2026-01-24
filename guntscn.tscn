@@ -1,34 +1,26 @@
-[gd_scene load_steps=6 format=3 uid="uid://d4nh8dpq6ktdl"]
+[gd_scene load_steps=5 format=3 uid="uid://d4nh8dpq6ktdl"]
 
 [ext_resource type="Script" uid="uid://5aasvkxrdv0o" path="res://gun.gd" id="1_jqdss"]
 [ext_resource type="Texture2D" uid="uid://b2cwf7lucoifg" path="res://image (7).png" id="2_3lxt5"]
 [ext_resource type="Script" uid="uid://b8eut4npksfh1" path="res://gun_sprite.gd" id="2_ybv0l"]
-[ext_resource type="Texture2D" uid="uid://cyne6vd6elyy0" path="res://icon.svg" id="3_ybv0l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3lxt5"]
-size = Vector2(46, 48)
+size = Vector2(2311, 2796)
 
-[node name="Node2D" type="Node2D"]
-
-[node name="gun" type="RigidBody2D" parent="."]
+[node name="gun" type="RigidBody2D"]
+angular_damp = 0.5
 script = ExtResource("1_jqdss")
-recoil_force = 1000.0
 
-[node name="Sprite2D" type="Sprite2D" parent="gun"]
-position = Vector2(9.5, -13.5)
-scale = Vector2(1.038, 0.946)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-26, 124)
+shape = SubResource("RectangleShape2D_3lxt5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-110, 35)
+scale = Vector2(5.7487497, 5.5002503)
 texture = ExtResource("2_3lxt5")
 script = ExtResource("2_ybv0l")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="gun"]
-position = Vector2(-1, 0)
-shape = SubResource("RectangleShape2D_3lxt5")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(0.1, 0.1)
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-z_index = -1
-position = Vector2(-8.7499695, 43)
-scale = Vector2(7.121094, 4)
-texture = ExtResource("3_ybv0l")
+[node name="FireDirection" type="RayCast2D" parent="."]
+position = Vector2(1523, 4524)
+target_position = Vector2(13, -6254)

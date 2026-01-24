@@ -1,6 +1,31 @@
-[gd_scene load_steps=2 format=3 uid="uid://b0abaaw0rjixx"]
+[gd_scene load_steps=5 format=3 uid="uid://b0abaaw0rjixx"]
 
 [ext_resource type="Script" uid="uid://dlwqq2wofrv8c" path="res://main.gd" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://d4nh8dpq6ktdl" path="res://guntscn.tscn" id="2_0xm2m"]
+[ext_resource type="Script" uid="uid://b2i6iydxuqc2d" path="res://camera_2d.gd" id="2_1bvp3"]
+[ext_resource type="Texture2D" uid="uid://cyne6vd6elyy0" path="res://icon.svg" id="2_h2yge"]
 
-[node name="Node2D" type="Node2D"]
+[node name="Main" type="Node2D"]
 script = ExtResource("1_ig7tw")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+z_index = 1
+position = Vector2(173, 7002)
+scale = Vector2(0.5, 0.5)
+zoom = Vector2(0.1, 0.1)
+position_smoothing_enabled = true
+rotation_smoothing_enabled = true
+editor_draw_limits = true
+script = ExtResource("2_1bvp3")
+
+[node name="Gun" parent="." instance=ExtResource("2_0xm2m")]
+position = Vector2(2, 20)
+
+[node name="BG" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-641, -19201)
+scale = Vector2(139.23438, 609.0161)
+texture = ExtResource("2_h2yge")
+
+[node name="GunSpawn" type="Marker2D" parent="."]
+position = Vector2(9, 13)
