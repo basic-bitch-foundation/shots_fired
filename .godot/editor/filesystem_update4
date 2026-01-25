@@ -1,5 +1,6 @@
+res://canvas_layer.gd
 res://gun.gd
-res://main.gd
-res://guntscn.tscn
 res://main.tscn
+res://background.gd
 res://camera_2d.gd
+res://main.gd

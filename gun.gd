@@ -2,37 +2,64 @@ extends RigidBody2D
 class_name Gun
 
 @onready var ray = $FireDirection
-@onready var spr = $Sprite2D
+@onready var spr
+@export var grav := 16200.0
+@export var kick := 270000.0
+@export var spd_cap := 21000.0
+@export var rot_cap := 600.0
+@export_range(0.0, 1.0) var hbias := 0.9
+@export var cd := 200
+@export var ammo_max := 10
 
+var clip := 10
+var last_t := 0
+var started := false
+var wrap_x := [0.0, 0.0]
+var death_line := 0.0
+var scrn_w := 0.0
 var clone_l
 var clone_r
-var wrap_l := 0.0
-var wrap_r := 0.0
-var death_y := 0.0
-var scrn_w := 0.0
-
-@export var grav := 81000.0/6
-@export var recoil := 180000.0*1.5
-@export var maxspd := 14000.0*1.5
-@export var maxrot := 400.0*1.5
-@export_range(0.0, 1.0) var hbias := 0.9
-@export var cooldown := 200
-@export var maxammo := 100
-
-var ammo := 100
-var lastfire := 0
 
 signal died
 signal ammo_upd
+signal game_start
+
+func bounds(l: float, r: float, _t: float, b: float):
+	wrap_x = [l, r]
+	death_line = b
+	scrn_w = r - l
+
+func addammo(n: int):
+	clip = min(clip + n, ammo_max)
+	ammo_upd.emit(clip)
+
+func _input(event):
+	var trig = false
+	
+	if event is InputEventScreenTouch and event.pressed:
+		trig = true
+	elif event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		trig = true
+	elif event is InputEventKey and event.pressed and event.keycode == KEY_SPACE:
+		trig = true
+	
+	if trig:
+		if not started:
+			started = true
+			freeze = false
+			game_start.emit()
+		shoot()
 
 func _ready():
-	ammo = maxammo
+	clip = ammo_max
 	gravity_scale = 0.0
 	linear_velocity = Vector2.ZERO
 	angular_velocity = 0.0
+	freeze = true
 	
 	if spr:
 		spr.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
+		
 		clone_l = Sprite2D.new()
 		clone_l.texture = spr.texture
 		clone_l.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
@@ -45,78 +72,59 @@ func _ready():
 		clone_r.visible = false
 		add_child(clone_r)
 
-func _input(event):
-	if event is InputEventKey and event.pressed and event.keycode == KEY_SPACE:
-		fire()
-	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		fire()
-
-func fire():
-	var t = Time.get_ticks_msec()
-	if t - lastfire < cooldown or ammo <= 0:
+func shoot():
+	if not started:
 		return
 	
-	ammo -= 1
-	lastfire = t
-	ammo_upd.emit(ammo)
+	var t = Time.get_ticks_msec()
+	if t - last_t < cd or clip <= 0:
+		return
 	
-	var tip = ray.position
-	var trig = ray.target_position
-	var dlocal = (tip - trig).normalized()
-	var dglobal = global_transform.basis_xform(dlocal).normalized()
+	clip -= 1
+	last_t = t
+	ammo_upd.emit(clip)
 	
-	var ang = dglobal.angle()
-	var hfac = abs(cos(ang))
-	var fmul = lerp(1.0, hfac, hbias)
-	var fscale = recoil * fmul
+	if OS.has_feature("mobile"):
+		Input.vibrate_handheld(50)
 	
-	var rdir = -dglobal
-	apply_impulse(rdir * fscale, tip)
+	var dir_local = (ray.position - ray.target_position).normalized()
+	var dir_world = global_transform.basis_xform(dir_local).normalized()
+	var force = kick * lerp(1.0, abs(cos(dir_world.angle())), hbias)
+	
+	apply_impulse(-dir_world * force, ray.position)
 
 func _physics_process(_delta):
+	if not started:
+		return
+	
 	apply_central_force(Vector2.DOWN * grav * mass)
 	
-	if linear_velocity.length() > maxspd:
-		linear_velocity = linear_velocity.normalized() * maxspd
+	var spd = linear_velocity.length()
+	if spd > spd_cap:
+		linear_velocity = linear_velocity * (spd_cap / spd)
 	
-	var maxang = deg_to_rad(maxrot)
-	angular_velocity = clamp(angular_velocity, -maxang, maxang)
+	angular_velocity = clamp(angular_velocity, -deg_to_rad(rot_cap), deg_to_rad(rot_cap))
 	
 	var px = global_position.x
-	if px < wrap_l:
-		global_position.x = wrap_r
-	elif px > wrap_r:
-		global_position.x = wrap_l
+	if px < wrap_x[0]:
+		global_position.x = wrap_x[1]
+	elif px > wrap_x[1]:
+		global_position.x = wrap_x[0]
 	
 	if clone_l and clone_r:
-		if px < wrap_l + 200:
-			clone_l.visible = true
-			clone_l.position.x = scrn_w
-			clone_l.position.y = 0
-			clone_l.rotation = spr.rotation
-		else:
-			clone_l.visible = false
+		var edge_zone = 200
+		clone_l.visible = px < wrap_x[0] + edge_zone
+		clone_r.visible = px > wrap_x[1] - edge_zone
 		
-		if px > wrap_r - 200:
-			clone_r.visible = true
-			clone_r.position.x = -scrn_w
-			clone_r.position.y = 0
+		if clone_l.visible:
+			clone_l.position = Vector2(scrn_w, 0)
+			clone_l.rotation = spr.rotation
+		if clone_r.visible:
+			clone_r.position = Vector2(-scrn_w, 0)
 			clone_r.rotation = spr.rotation
-		else:
-			clone_r.visible = false
 	
-	if global_position.y > death_y:
+	if global_position.y > death_line:
 		died.emit()
 
-func bounds(l: float, r: float, _t: float, b: float):
-	wrap_l = l
-	wrap_r = r
-	death_y = b
-	scrn_w = r - l
-
-func addammo(amt: int):
-	ammo = min(ammo + amt, maxammo)
-	ammo_upd.emit(ammo)
-
 func getammo() -> int:
-	return ammo
+	return clip
