@@ -1,6 +1,8 @@
-res://canvas_layer.gd
-res://gun.gd
 res://main.tscn
-res://background.gd
-res://camera_2d.gd
 res://main.gd
+res://bullets.gd
+res://bul_counter.gd
+res://camera_2d.gd
+res://background.gd
+res://gun.gd
+res://coinmanger.gd

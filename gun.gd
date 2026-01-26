@@ -2,7 +2,13 @@ extends RigidBody2D
 class_name Gun
 
 @onready var ray = $FireDirection
-@onready var spr
+@onready var spr = $Sprite2D
+
+var sprite_normal: Texture2D
+var sprite_fire: Texture2D
+
+@export var fire_sprite_duration := 0.06
+
 @export var grav := 16200.0
 @export var kick := 270000.0
 @export var spd_cap := 21000.0
@@ -57,7 +63,15 @@ func _ready():
 	angular_velocity = 0.0
 	freeze = true
 	
+	
+	sprite_normal = load("res://aasset image/gun-normal.png")
+	sprite_fire = load("res://aasset image/gun-fire.png")
+	
 	if spr:
+		
+		if sprite_normal:
+			spr.texture = sprite_normal
+		
 		spr.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
 		
 		clone_l = Sprite2D.new()
@@ -87,6 +101,19 @@ func shoot():
 	if OS.has_feature("mobile"):
 		Input.vibrate_handheld(50)
 	
+	# === SPRITE SWITCH ===
+	if spr and sprite_fire:
+		spr.texture = sprite_fire
+		clone_l.texture = sprite_fire
+		clone_r.texture = sprite_fire
+		
+		await get_tree().create_timer(fire_sprite_duration).timeout
+		
+		if spr and sprite_normal:
+			spr.texture = sprite_normal
+			clone_l.texture = sprite_normal
+			clone_r.texture = sprite_normal
+	
 	var dir_local = (ray.position - ray.target_position).normalized()
 	var dir_world = global_transform.basis_xform(dir_local).normalized()
 	var force = kick * lerp(1.0, abs(cos(dir_world.angle())), hbias)
@@ -111,7 +138,7 @@ func _physics_process(_delta):
 	elif px > wrap_x[1]:
 		global_position.x = wrap_x[0]
 	
-	if clone_l and clone_r:
+	if clone_l and clone_r and spr:
 		var edge_zone = 200
 		clone_l.visible = px < wrap_x[0] + edge_zone
 		clone_r.visible = px > wrap_x[1] - edge_zone

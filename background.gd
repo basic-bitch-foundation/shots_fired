@@ -1,13 +1,13 @@
 extends Node2D
 
-var cam: Camera2D
-var gun: RigidBody2D
-var tiles: Array = []
-var tile_h: float
-var tmpl_tex: Texture2D
-var tmpl_scale: Vector2
-var tmpl_centered: bool
-var tmpl_x: float
+var cam
+var gun
+var tiles = []
+var tile_h
+var tmpl_tex
+var tmpl_scale
+var tmpl_centered
+var tmpl_x
 
 func _ready():
 	cam = get_parent().get_node("Camera2D")

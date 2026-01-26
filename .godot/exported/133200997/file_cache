@@ -1,6 +1,7 @@
 res://addons/godot_super-wakatime/api_key_prompt.tscn::a6988a5ba43d5aa92a08f216c1db28db::1769019507::res://.godot/exported/133200997/export-cd8705cb5e2533bd79c64579ac674dae-api_key_prompt.scn
 res://addons/godot_super-wakatime/counter.tscn::7f13ad35960e259f6de719f9785ce249::1769019507::res://.godot/exported/133200997/export-4af6c9115c1c285af5925fa1ce6a526e-counter.scn
 res://gun.tscn::3dfab36c7d920d81222b307b612b3ed8::1769069772::res://.godot/exported/133200997/export-b254bef953a17239ecd110db09321b87-gun.scn
-res://guntscn.tscn::9737dda25c7ffd209942bc12ba152553::1769277364::res://.godot/exported/133200997/export-219923046b203b424caa90776764faaa-guntscn.scn
-res://main.tscn::cc7f15940169317ebe235a427906fc96::1769358721::res://.godot/exported/133200997/export-3070c538c03ee49b7677ff960a3f5195-main.scn
+res://guntscn.tscn::5c001bfb5acc98fb2799efd63ed48436::1769379350::res://.godot/exported/133200997/export-219923046b203b424caa90776764faaa-guntscn.scn
+res://main.tscn::ae680dd9bca70e3c42f4c9515f30f748::1769379556::res://.godot/exported/133200997/export-3070c538c03ee49b7677ff960a3f5195-main.scn
 res://Test.tscn::9745d3afc3dd40f349aa41f53b4acb10::1769019508::res://.godot/exported/133200997/export-424cafac01f45de89b53d7dc0c0edabc-Test.scn
+res://menu.tscn::d532936e56727ec4a73aa20ebef84bc5::1769371906::res://.godot/exported/133200997/export-a4951207776b25ee5c8b2b05c1463587-menu.scn
