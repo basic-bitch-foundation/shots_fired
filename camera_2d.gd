@@ -6,10 +6,10 @@ var start_x: float
 var active := false
 var top_y: float = 0.0
 
-func deathline() -> float:
+func deathline():
 	return global_position.y + (get_viewport().get_visible_rect().size.y / zm) * 0.5
 
-func screenbnds() -> Dictionary:
+func screenbnds():
 	var sz = get_viewport().get_visible_rect().size / zm
 	var half_w = sz.x * 0.5
 	var half_h = sz.y * 0.5

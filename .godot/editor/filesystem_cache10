@@ -1,32 +1,39 @@
 e910c82af1378a97450e26817c58487e
-::res://::1769430964
-background.gd::GDScript::6717523318027140826::1769367256::0::1::::<>Node2D<><>0<>0<><>::
+::res://::1769492668
+background.gd::GDScript::6717523318027140826::1769432726::0::1::::<>Node2D<><>0<>0<><>::
 bg_ss0.png::CompressedTexture2D::7462532385847731409::1769069704::1769069705::1::::<><><>0<>0<>bd946c869e7e1933219d272089bc0b7e<>res://.godot/imported/bg_ss0.png-b6c58e18e9db93a395359179546f7911.ctex::
-camera_2d.gd::GDScript::4299932263346643457::1769367256::0::1::::<>Camera2D<><>0<>0<><>::
-canvas_layer.gd::GDScript::4835858657549610957::1769367256::0::1::::<>CanvasLayer<><>0<>0<><>::
-coinmanger.gd::GDScript::1711829490556512090::1769379446::0::1::::<>Node2D<><>0<>0<><>::
-export_presets.cfg::TextFile::-1::1769379813::0::1::::<><><>0<>0<><>::
-gun.gd::GDScript::2105698572937532348::1769378049::0::1::::Gun<>RigidBody2D<><>0<>0<><>::
+bullets.gd::GDScript::178437022552647778::1769463697::0::1::::<>Node2D<><>0<>0<><>::
+bul_counter.gd::GDScript::4979682872191692019::1769491938::0::1::::<>Control<><>0<>0<><>::
+camera_2d.gd::GDScript::4299932263346643457::1769463886::0::1::::<>Camera2D<><>0<>0<><>::
+canvas_layer.gd::GDScript::4835858657549610957::1769463484::0::1::::<>CanvasLayer<><>0<>0<><>::
+coinmanger.gd::GDScript::1711829490556512090::1769463329::0::1::::<>Node2D<><>0<>0<><>::
+export_presets.cfg::TextFile::-1::1769491982::0::1::::<><><>0<>0<><>::
+FrederickatheGreat-Regular.ttf::FontFile::8353172925895989530::1769464435::1769464435::1::::<><><>0<>0<>855484a2df92cf841f48a9a17d8de0f1<>res://.godot/imported/FrederickatheGreat-Regular.ttf-ae81558d9855649b10dfe230aed9e1b7.fontdata::
+gun.gd::GDScript::2105698572937532348::1769463329::0::1::::Gun<>RigidBody2D<><>0<>0<><>::
 gun.tscn::PackedScene::3072428348198596955::1769069772::0::1::::<><><>0<>0<><>::uid://5aasvkxrdv0o::::res://gun.gd<>uid://cyne6vd6elyy0::::res://icon.svg<>uid://dek522y2sr6nt::::res://bg_ss0.png
-guntscn.tscn::PackedScene::9222059559044171197::1769379350::0::1::::<><><>0<>0<><>::uid://5aasvkxrdv0o::::res://gun.gd<>uid://b8eut4npksfh1::::res://gun_sprite.gd
+guntscn.tscn::PackedScene::9222059559044171197::1769463078::0::1::::<><><>0<>0<><>::uid://5aasvkxrdv0o::::res://gun.gd<>uid://b8eut4npksfh1::::res://gun_sprite.gd
 gun_sprite.gd::GDScript::4712159848659150956::1769071200::0::1::::<>Sprite2D<><>0<>0<><>::
 handgun.png::CompressedTexture2D::5171167470364425375::1769070929::1769070929::1::::<><><>0<>0<>1df170490369f9bdd61b7854b1834c6f<>res://.godot/imported/handgun.png-6a6cb0ba0d085aea7b01c35ca66089e1.ctex::
 icon.svg::CompressedTexture2D::6484509862122944737::1769019470::1769022480::1::::<><><>0<>0<>1dadae2a6f1a42041576357e041237de<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
 image (7).png::CompressedTexture2D::4286994618890475680::1769071007::1769071021::1::::<><><>0<>0<>a3a95caad6d605d24f699fa0a0e57405<>res://.godot/imported/image (7).png-4a90308c8e52a79a9a10de1a19b85bdf.ctex::
-main.gd::GDScript::7977757139033338448::1769430023::0::1::::<>Node2D<><>0<>0<><>::
-main.tscn::PackedScene::4141202526781341373::1769430964::0::1::::<><><>0<>0<><>::uid://dlwqq2wofrv8c::::res://main.gd<>uid://d4nh8dpq6ktdl::::res://guntscn.tscn<>uid://b2i6iydxuqc2d::::res://camera_2d.gd<>uid://c2yavlrn1rxhi::::res://background.gd<>uid://ca0ckdx3f64x2::::res://aasset image/bg.png<>uid://ca5r5dyephr0p::::res://canvas_layer.gd<>uid://ynht1lr1hvy5::::res://coinmanger.gd<>uid://bj6iv8tug6t03::::res://aasset image/coin.png<>uid://cc7gwcwu14njf::::res://bul_counter.gd<>uid://bcsht6b0hq4jd::::res://aasset image/bullet_icon.png<>uid://cso3jo2io0bm::::res://bullets.gd<>uid://clg4as6wdeoyg::::res://aasset image/bullet_count.png
-menu.tscn::PackedScene::3095982579797603639::1769371906::0::1::::<><><>0<>0<><>::
+main.gd::GDScript::7977757139033338448::1769463485::0::1::::<>Node2D<><>0<>0<><>::
+main.tscn::PackedScene::4141202526781341373::1769464482::0::1::::<><><>0<>0<><>::uid://dlwqq2wofrv8c::::res://main.gd<>uid://d4nh8dpq6ktdl::::res://guntscn.tscn<>uid://b2i6iydxuqc2d::::res://camera_2d.gd<>uid://c2yavlrn1rxhi::::res://background.gd<>uid://ca0ckdx3f64x2::::res://aasset image/bg.png<>uid://ca5r5dyephr0p::::res://canvas_layer.gd<>uid://ynht1lr1hvy5::::res://coinmanger.gd<>uid://bj6iv8tug6t03::::res://aasset image/coin.png<>uid://cc7gwcwu14njf::::res://bul_counter.gd<>uid://bcsht6b0hq4jd::::res://aasset image/bullet_icon.png<>uid://dralsjs2l83ic::::res://FrederickatheGreat-Regular.ttf<>uid://cso3jo2io0bm::::res://bullets.gd<>uid://clg4as6wdeoyg::::res://aasset image/bullet_count.png<>uid://dr3l3t8qqvwuo::::res://aasset image/back.png
+menu.gd::GDScript::4667707704918640402::1769463886::0::1::::<>Node2D<><>0<>0<><>::
+menu.tscn::PackedScene::3095982579797603639::1769462686::0::1::::<><><>0<>0<><>::uid://dp0vtbmqtu5ew::::res://aasset image/bg_menu.png<>uid://b7rcp1kw5olgk::::res://menu.gd<>uid://b74vro54e6idx::::res://aasset image/mute.png<>uid://dkh2u3v8xccw1::::res://aasset image/unmute.png
 README.md::TextFile::-1::1769022187::0::1::::<><><>0<>0<><>::
-bul_counter.gd::GDScript::4979682872191692019::1769430492::0::1::::<>HBoxContainer<><>0<>0<><>::
-bullets.gd::GDScript::178437022552647778::1769430023::0::1::::<>Node2D<><>0<>0<><>::
+sound_manager.gd::GDScript::3573995395350134340::1769463079::0::1::::<>Node<><>0<>0<><>::
 Test.tscn::PackedScene::8099162704508995467::1769019508::0::1::::<><><>0<>0<><>::uid://ocqr4kaowgws::::res://icon.svg
-::res://aasset image/::1769431258
+::res://aasset image/::1769464022
+back.png::CompressedTexture2D::8410993908860693750::1769464022::1769464022::1::::<><><>0<>0<>1ba699a7fbdcb69921038fae1a7329cc<>res://.godot/imported/back.png-7d0a3964561a71510327af122df9d5ea.ctex::
 bg.png::CompressedTexture2D::4824590297542956709::1769358621::1769358621::1::::<><><>0<>0<>42418477fa48ac4307f2aaa977cde4a2<>res://.godot/imported/bg.png-9dc39de2c9c61d1cf25dbc254bb755d0.ctex::
+bg_menu.png::CompressedTexture2D::8265013208247753318::1769452273::1769452273::1::::<><><>0<>0<>446f6aa034ccb4cca6c48d4e222e9f63<>res://.godot/imported/bg_menu.png-0ab0151beebc2c1c2f3487662f5b7cde.ctex::
 bullet_count.png::CompressedTexture2D::5559066701032146494::1769431258::1769431258::1::::<><><>0<>0<>ce2ee6016469f00ad500fd503c716664<>res://.godot/imported/bullet_count.png-1fade12e2ff763ffcb5861d249b69c0a.ctex::
 bullet_icon.png::CompressedTexture2D::2564417750490361593::1769421101::1769421101::1::::<><><>0<>0<>dd9ae94a775a8e2a4892e3bb985491ee<>res://.godot/imported/bullet_icon.png-a0547b6cbdc58f4204e2331e091a5a18.ctex::
 coin.png::CompressedTexture2D::3082640987965186514::1769378031::1769378032::1::::<><><>0<>0<>3f4fb14c64b3f54bb5954c9315389fa5<>res://.godot/imported/coin.png-e93235b210a070342b01fb888c4d6fa5.ctex::
 gun-fire.png::CompressedTexture2D::3644062046214340749::1769372036::1769372037::1::::<><><>0<>0<>4178d3f9f2a1ea7d00e4add7e02c271b<>res://.godot/imported/gun-fire.png-c01fc2704d71d990eed50a1467fc66a1.ctex::
 gun-normal.png::CompressedTexture2D::4740198675661704683::1769371884::1769371885::1::::<><><>0<>0<>5cf8481e759ec80012d868236f7c19e4<>res://.godot/imported/gun-normal.png-e44da3b5591a6de8d6dd3e985ba257ee.ctex::
+mute.png::CompressedTexture2D::4693636833317584757::1769453641::1769453642::1::::<><><>0<>0<>04f13dea389a4f9dd03582170e8f91d8<>res://.godot/imported/mute.png-27317ba50c24beadfb2b70a1bf46d766.ctex::
+unmute.png::CompressedTexture2D::7877277711045721070::1769453641::1769453642::1::::<><><>0<>0<>a06cfb1b54e3aaa874fae4aee17b2dc7<>res://.godot/imported/unmute.png-30b712bd47e5507d8d92032a5467cade.ctex::
 ::res://addons/::1769019507
 ::res://addons/godot_super-wakatime/::1769019507
 api_key_prompt.tscn::PackedScene::3919262858641749045::1769019507::0::1::::<><><>0<>0<><>::
@@ -36,8 +43,13 @@ godot_super-wakatime.gd::GDScript::6277149880384411866::1769019507::0::1::::<>Ed
 plugin.cfg::TextFile::-1::1769019507::0::1::::<><><>0<>0<><>::
 README.md::TextFile::-1::1769019507::0::1::::<><><>0<>0<><>::
 utils.gd::GDScript::5251015809120159908::1769019507::0::1::::<>RefCounted<><>0<>0<><>::
-::res://android/::1769380333
 ::res://images/::1769071020
 godotwaka2.png::CompressedTexture2D::7026850610005011835::1769019508::1769022481::1::::<><><>0<>0<>46217c9c5839b2c9f7217cd3af6b8860<>res://.godot/imported/godotwaka2.png-7d3d010fb4adc0d433467ab1cc4754ed.ctex::
 godotwaka.png::CompressedTexture2D::7932361111412089001::1769019508::1769022480::1::::<><><>0<>0<>7360cc7c44aafc955def6087604c985e<>res://.godot/imported/godotwaka.png-ef0518417b4f997d237759e5551dd05d.ctex::
 icon.jpg::CompressedTexture2D::3122668444336440389::1769019508::1769022480::1::::<><><>0<>0<>3d1d80fd4049890345f07c1608fe4e66<>res://.godot/imported/icon.jpg-64f68b30ea939aa8019167e67dffb2db.ctex::
+::res://sound/::1769462071
+click.wav::AudioStreamWAV::8089076166884343722::1769460659::1769461901::1::::<><><>0<>0<>a4626b4fb641bdf1d4706c5cff7f1ce3<>res://.godot/imported/click.wav-c5e6397ccf2579ff3b1f6318b0974493.sample::
+coin.wav::AudioStreamWAV::432030625249850048::1769460691::1769461882::1::::<><><>0<>0<>f069c36923c0c43ff8a9a354c7bb294f<>res://.godot/imported/coin.wav-fcd7aec7959d3f43bcba358fb78d1cf1.sample::
+load.mp3::AudioStreamMP3::5053636531984908409::1769462059::1769462071::1::::<><><>0<>0<>91468b1eae218cc5f3132b7c597a3ce6<>res://.godot/imported/load.mp3-2eec685f69d72516223e12d1f7eddfe1.mp3str::
+over.wav::AudioStreamWAV::8693350111455316::1769461991::1769462001::1::::<><><>0<>0<>b7729b625ed7708bcc5d33b54049f88c<>res://.godot/imported/over.wav-9936414fb7a0e5ee80626605ef2f5fb2.sample::
+shot.mp3::AudioStreamMP3::4819760849970971697::1769460680::1769461894::1::::<><><>0<>0<>5ce535721f7d271aa6912214746036b0<>res://.godot/imported/shot.mp3-31f262db038a2e8ac2bf5fc46db25c97.mp3str::

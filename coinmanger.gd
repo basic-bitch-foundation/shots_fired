@@ -26,6 +26,7 @@ func hit(body, coin):
 	
 	active.remove_at(idx)
 	cnt += 1
+	SoundManager.coin()
 	updui()
 	
 	if OS.has_feature("mobile"):
@@ -67,7 +68,7 @@ func spawn():
 			make(cx + coloff, lasty)
 
 func cleanup():
-	var thresh = cam.global_position.y + 3000.0
+	var thresh = cam.global_position.y + 10000.0
 	var i = active.size() - 1
 	
 	while i >= 0:

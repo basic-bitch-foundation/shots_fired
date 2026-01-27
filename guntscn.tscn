@@ -4,14 +4,14 @@
 [ext_resource type="Script" uid="uid://b8eut4npksfh1" path="res://gun_sprite.gd" id="2_ybv0l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3lxt5"]
-size = Vector2(1941, 3266.5)
+size = Vector2(1773, 3247)
 
 [node name="gun" type="RigidBody2D"]
 angular_damp = 0.5
 script = ExtResource("1_jqdss")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-141.5, 211.75)
+position = Vector2(-225.5, 213.5)
 shape = SubResource("RectangleShape2D_3lxt5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

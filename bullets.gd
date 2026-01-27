@@ -5,10 +5,10 @@ extends Node2D
 @export var coloff := 400.0
 @export var ammopick := 3
 
-var gun: RigidBody2D
-var cam: Camera2D
-var tmpl: Area2D
-var folder: Node2D
+var gun
+var cam 
+var tmpl
+var folder
 var lasty := 0.0
 var active = []
 
@@ -65,7 +65,7 @@ func _process(_delta):
 	cleanup()
 
 func cleanup():
-	var thresh = cam.global_position.y + 3500.0
+	var thresh = cam.global_position.y +10500.0
 	var rmv = []
 	
 	for b in active:

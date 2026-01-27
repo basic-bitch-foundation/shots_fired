@@ -11,10 +11,14 @@ config_version=5
 [application]
 
 config/name="shots_fired"
-run/main_scene="uid://b0abaaw0rjixx"
+run/main_scene="uid://bkdym7fobcg5d"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 run/low_processor_mode=true
 config/icon="res://icon.svg"
+
+[autoload]
+
+SoundManager="*res://sound_manager.gd"
 
 [debug]
 

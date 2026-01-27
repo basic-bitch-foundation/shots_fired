@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b0abaaw0rjixx"]
+[gd_scene load_steps=17 format=3 uid="uid://b0abaaw0rjixx"]
 
 [ext_resource type="Script" uid="uid://dlwqq2wofrv8c" path="res://main.gd" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://d4nh8dpq6ktdl" path="res://guntscn.tscn" id="2_0xm2m"]
@@ -10,8 +10,10 @@
 [ext_resource type="Texture2D" uid="uid://bj6iv8tug6t03" path="res://aasset image/coin.png" id="7_272bh"]
 [ext_resource type="Script" uid="uid://cc7gwcwu14njf" path="res://bul_counter.gd" id="9_efxa6"]
 [ext_resource type="Texture2D" uid="uid://bcsht6b0hq4jd" path="res://aasset image/bullet_icon.png" id="9_kek77"]
+[ext_resource type="FontFile" uid="uid://dralsjs2l83ic" path="res://FrederickatheGreat-Regular.ttf" id="9_w48qg"]
 [ext_resource type="Script" uid="uid://cso3jo2io0bm" path="res://bullets.gd" id="10_dg77c"]
 [ext_resource type="Texture2D" uid="uid://clg4as6wdeoyg" path="res://aasset image/bullet_count.png" id="10_ycdy4"]
+[ext_resource type="Texture2D" uid="uid://dr3l3t8qqvwuo" path="res://aasset image/back.png" id="12_vivmo"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_272bh"]
 radius = 804.5036
@@ -62,6 +64,7 @@ color = Color(1, 1, 1, 0.14117648)
 
 [node name="Coinmanger" type="Node2D" parent="."]
 script = ExtResource("7_5vw27")
+coloff = -20.0
 
 [node name="coins" type="Node2D" parent="Coinmanger"]
 
@@ -81,15 +84,16 @@ metadata/_edit_lock_ = true
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="UI"]
-position = Vector2(71, 79)
+position = Vector2(868.0001, 72)
 scale = Vector2(0.19364606, 0.19213313)
 texture = ExtResource("7_272bh")
 
 [node name="count" type="Label" parent="UI"]
-offset_left = 154.0
-offset_top = 13.0
-offset_right = 694.0
-offset_bottom = 658.0
+offset_left = 950.0
+offset_top = -3.0
+offset_right = 1490.0
+offset_bottom = 642.0
+theme_override_fonts/font = ExtResource("9_w48qg")
 theme_override_font_sizes/font_size = 100
 text = "99"
 
@@ -147,6 +151,16 @@ texture = ExtResource("10_ycdy4")
 position = Vector2(1000, 1717)
 scale = Vector2(0.86, 0.86)
 texture = ExtResource("10_ycdy4")
+
+[node name="Button" type="Button" parent="UI/bul_counter"]
+z_index = 1
+layout_mode = 0
+offset_left = 11.0
+offset_top = 11.0
+offset_right = 222.0
+offset_bottom = 185.0
+icon = ExtResource("12_vivmo")
+flat = true
 
 [node name="Node2D" type="Node2D" parent="."]
 script = ExtResource("10_dg77c")

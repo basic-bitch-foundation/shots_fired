@@ -5,6 +5,7 @@ extends Node2D
 @onready var spawn = $GunSpawn
 
 func respawn():
+	SoundManager.over()
 	await get_tree().create_timer(0.5).timeout
 	get_tree().reload_current_scene()
 

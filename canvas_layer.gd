@@ -13,6 +13,7 @@ func _ready():
 	
 	
 	
+	
 	gun = get_parent().get_node("Gun")
 	if gun:
 		gun.ammo_upd.connect(_on_gun_fire)

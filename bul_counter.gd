@@ -1,7 +1,8 @@
 extends Control
 
-var gun: RigidBody2D
+var gun
 var icons = []
+@onready var back_btn = $Button
 
 func update(ammo: int):
 	for i in icons.size():
@@ -23,3 +24,7 @@ func _ready():
 	if gun:
 		gun.ammo_upd.connect(ammochg)
 		update(gun.getammo())
+		back_btn.pressed.connect(_on_back_pressed)
+func _on_back_pressed():
+	SoundManager.click()
+	get_tree().change_scene_to_file("res://menu.tscn")

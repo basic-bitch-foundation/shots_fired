@@ -4,8 +4,8 @@ class_name Gun
 @onready var ray = $FireDirection
 @onready var spr = $Sprite2D
 
-var sprite_normal: Texture2D
-var sprite_fire: Texture2D
+var sprite_normal
+var sprite_fire
 
 @export var fire_sprite_duration := 0.06
 
@@ -16,7 +16,7 @@ var sprite_fire: Texture2D
 @export_range(0.0, 1.0) var hbias := 0.9
 @export var cd := 200
 @export var ammo_max := 10
-
+var is_first_shot = true
 var clip := 10
 var last_t := 0
 var started := false
@@ -57,6 +57,7 @@ func _input(event):
 		shoot()
 
 func _ready():
+	is_first_shot = true
 	clip = ammo_max
 	gravity_scale = 0.0
 	linear_velocity = Vector2.ZERO
@@ -96,12 +97,13 @@ func shoot():
 	
 	clip -= 1
 	last_t = t
+	shoot_sound()
 	ammo_upd.emit(clip)
 	
 	if OS.has_feature("mobile"):
 		Input.vibrate_handheld(50)
 	
-	# === SPRITE SWITCH ===
+	
 	if spr and sprite_fire:
 		spr.texture = sprite_fire
 		clone_l.texture = sprite_fire
@@ -155,3 +157,12 @@ func _physics_process(_delta):
 
 func getammo() -> int:
 	return clip
+
+func shoot_sound():
+	if is_first_shot:
+		SoundManager.firstshot()
+		is_first_shot = false
+	else:
+		SoundManager.shot()
+		
+		
