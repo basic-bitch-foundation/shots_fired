@@ -9,7 +9,7 @@ Player have to manage w/ reflexes to shoot in correct direction adn angle to onl
 And collect coins and they can collect bullets too!
 
 ## Installation
-User can play it in browser on Itch.io and from there itself one can download a runnable acoording to sutwar this game is especially designed for Phone
+User can play it in browser on Itch.io -> https://basic-bitch-foundation.itch.io/shots-fired and from there itself one can download a runnable acoording to sutwar this game is especially designed for Phone
 ## credits
 This game is made for #Mlikyway for Hackclub!
 Feel free to contribute!
